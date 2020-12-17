@@ -73,12 +73,19 @@ class RestaurantTest {
     //<<<<<<<<<<<<<Calculating order value>>>>>>>>>>>>>
 
     @Test
-    public void return_total_amount_of_selected_Items() {
+    public void return_total_amount_of_selected_Items_which_should_fail() {
         List<Item> selected_items = null;
         Item item1 = new Item("Maggie", 50);
         Item item2 = new Item("Pasta", 50);
         selected_items.add(item1);
         selected_items.add(item2);
-//        assertEquals(expected:110,restaurant.calculateTotal(selected_items));
+    }
+
+    @Test
+    public void adding_item_to_menu_should_view_total_price() {
+    List<Item> menu = restaurant.getMenu();
+    int totalPrice = 388;
+    int actualTotalPrice = restaurant.totalCost(menu);
+    assertEquals(totalPrice, actualTotalPrice);
     }
 }
